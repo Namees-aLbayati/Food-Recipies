@@ -15,6 +15,11 @@ html {
   body {
     margin: 0;
   }
+  .container2{
+
+background-color: #008fa1;
+
+  }
   
   /**
    * Add the correct display in IE 9-.

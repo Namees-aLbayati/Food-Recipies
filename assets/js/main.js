@@ -84,10 +84,10 @@ fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${keyword}&app_id=0d9
        
         window.alert('Something went wrong!Try Again!!')
     }
-   console.log('fetch result all',data)
-   createCards(data)
+    localStorage.setItem('result',JSON.stringify(data))
+    createCards(data)
    document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
-
+localStorage.setItem('resultNow',JSON.stringify(data))
 })
 }else if (keyword&&Catog&&health&&cuisine&&meal){
     console.log('5',keyword,Catog,health,cuisine,meal)
@@ -102,6 +102,7 @@ fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${keyword}&app_id=0d9
               createCards(data)
 
               document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
+              localStorage.setItem('resultNow',JSON.stringify(data))
 
      })
 
@@ -123,6 +124,7 @@ else if (keyword&&Catog&&health&&cuisine){
               createCards(data)
 
               document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
+              localStorage.setItem('resultNow',JSON.stringify(data))
 
      })
 
@@ -142,6 +144,7 @@ else if (keyword&&Catog&&health&&cuisine){
               createCards(data)
 
               document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
+              localStorage.setItem('resultNow',JSON.stringify(data))
 
      })
 
@@ -184,7 +187,8 @@ fetch(newHttp+lastHttp).then((result)=>{
      createCards(data)
 
      document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
-   
+     localStorage.setItem('resultNow',JSON.stringify(data))
+
 
     })
     
@@ -207,6 +211,7 @@ console.log('1',keyword)
        console.log('fetch result for  1',data)    
           createCards(data)
           document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
+          localStorage.setItem('resultNow',JSON.stringify(data))
 
 
      })
