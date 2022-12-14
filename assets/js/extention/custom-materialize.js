@@ -287,8 +287,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   function addClass(v, c, spacedName) {
     if (v.classList) {
       v.classList.add(c);
-    } else if (spacedName.indexOf(" " + c + " ")) {
-      v.className += " " + c;
+    } else if (spacedName.indexOf(" ," + c + " ,")) {
+      v.className += " ," + c;
     }
   }
 
@@ -305,7 +305,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       var classes = getClasses(c);
 
       return classes ? this.each(function (v) {
-        var spacedName = " " + v.className + " ";
+        var spacedName = " ," + v.className + " ,";
         each(classes, function (c) {
           addClass(v, c, spacedName);
         });
@@ -398,7 +398,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
       var classes = getClasses(c);
       return classes ? this.each(function (v) {
-        var spacedName = " " + v.className + " ";
+        var spacedName = " ," + v.className + " ,";
         each(classes, function (c) {
           if (hasClass(v, c)) {
             removeClass(v, c);
@@ -482,7 +482,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
           prefixes = ["webkit", "moz", "ms", "o"],
-          props = (prop + " " + prefixes.join(ucProp + " ") + ucProp).split(" ");
+          props = (prop + " ," + prefixes.join(ucProp + " ,") + ucProp).split(" ,");
 
       each(props, function (p) {
         if (p in style) {
@@ -1710,10 +1710,10 @@ $jscomp.polyfill = function (e, r, p, m) {
               q = l.from.numbers[t],
               x = l.isPath ? Y(l.value, w * x) : q + w * (x - q);p && (l.isColor && 2 < t || (x = Math.round(x * p) / p));n.push(x);
         }if (l = h.length) for (m = h[0], w = 0; w < l; w++) {
-          p = h[w + 1], t = n[w], isNaN(t) || (m = p ? m + (t + p) : m + (t + " "));
+          p = h[w + 1], t = n[w], isNaN(t) || (m = p ? m + (t + p) : m + (t + " ,"));
         } else m = n[0];ha[e.type](k.target, e.property, m, c, k.id);e.currentValue = m;b++;
       }if (b = Object.keys(c).length) for (d = 0; d < b; d++) {
-        H || (H = E(document.body, "transform") ? "transform" : "-webkit-transform"), g.animatables[d].target.style[H] = c[d].join(" ");
+        H || (H = E(document.body, "transform") ? "transform" : "-webkit-transform"), g.animatables[d].target.style[H] = c[d].join(" ,");
       }g.currentTime = a;g.progress = a / g.duration * 100;
     }function f(a) {
       if (g[a]) g[a](g);
@@ -1760,7 +1760,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     };g.finished = m;g.reset();g.autoplay && g.play();return g;
   }var ga = { update: void 0, begin: void 0, run: void 0, complete: void 0, loop: 1, direction: "normal", autoplay: !0, offset: 0 },
       S = { duration: 1E3, delay: 0, easing: "easeOutElastic", elasticity: 500, round: 0 },
-      W = "translateX translateY translateZ rotate rotateX rotateY rotateZ scale scaleX scaleY scaleZ skewX skewY perspective".split(" "),
+      W = "translateX translateY translateZ rotate rotateX rotateY rotateZ scale scaleX scaleY scaleZ skewX skewY perspective".split(" ,"),
       H,
       h = { arr: function (a) {
       return Array.isArray(a);
@@ -1821,7 +1821,7 @@ $jscomp.polyfill = function (e, r, p, m) {
       Q = function () {
     function a(a, b) {
       return 0 === a || 1 === a ? a : -Math.pow(2, 10 * (a - 1)) * Math.sin(2 * (a - 1 - b / (2 * Math.PI) * Math.asin(1)) * Math.PI / b);
-    }var c = "Quad Cubic Quart Quint Sine Expo Circ Back Elastic".split(" "),
+    }var c = "Quad Cubic Quart Quint Sine Expo Circ Back Elastic".split(" ,"),
         d = { In: [[.55, .085, .68, .53], [.55, .055, .675, .19], [.895, .03, .685, .22], [.755, .05, .855, .06], [.47, 0, .745, .715], [.95, .05, .795, .035], [.6, .04, .98, .335], [.6, -.28, .735, .045], a], Out: [[.25, .46, .45, .94], [.215, .61, .355, 1], [.165, .84, .44, 1], [.23, 1, .32, 1], [.39, .575, .565, 1], [.19, 1, .22, 1], [.075, .82, .165, 1], [.175, .885, .32, 1.275], function (b, c) {
         return 1 - a(1 - b, c);
       }], InOut: [[.455, .03, .515, .955], [.645, .045, .355, 1], [.77, 0, .175, 1], [.86, 0, .07, 1], [.445, .05, .55, .95], [1, 0, 0, 1], [.785, .135, .15, .86], [.68, -.55, .265, 1.55], function (b, c) {
@@ -2744,7 +2744,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         this.dropdownEl.style.top = positionInfo.y + 'px';
         this.dropdownEl.style.height = positionInfo.height + 'px';
         this.dropdownEl.style.width = positionInfo.width + 'px';
-        this.dropdownEl.style.transformOrigin = (positionInfo.horizontalAlignment === 'left' ? '0' : '100%') + " " + (positionInfo.verticalAlignment === 'top' ? '0' : '100%');
+        this.dropdownEl.style.transformOrigin = (positionInfo.horizontalAlignment === 'left' ? '0' : '100%') + " ," + (positionInfo.verticalAlignment === 'top' ? '0' : '100%');
       }
 
       /**
@@ -8991,7 +8991,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         var month = i18n.monthsShort[displayDate.getMonth()];
         var date = displayDate.getDate();
         this.yearTextEl.innerHTML = displayDate.getFullYear();
-        this.dateTextEl.innerHTML = day + ", " + month + " " + date;
+        this.dateTextEl.innerHTML = day + ", " + month + " ," + date;
       }
 
       /**
@@ -9231,7 +9231,7 @@ $jscomp.polyfill = function (e, r, p, m) {
 
         for (arr = []; i < j && i <= opts.maxYear; i++) {
           if (i >= opts.minYear) {
-            arr.push("<option value=\"" + i + "\" " + (i === year ? 'selected="selected"' : '') + ">" + i + "</option>");
+            arr.push("<option value=\"" + i + "\" ," + (i === year ? 'selected="selected"' : '') + ">" + i + "</option>");
           }
         }
 
@@ -10199,7 +10199,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         var value = clearValue ? '' : Timepicker._addLeadingZero(this.hours) + ':' + Timepicker._addLeadingZero(this.minutes);
         this.time = value;
         if (!clearValue && this.options.twelveHour) {
-          value = value + " " + this.amOrPm;
+          value = value + " ," + this.amOrPm;
         }
         this.el.value = value;
 
@@ -11910,7 +11910,7 @@ $jscomp.polyfill = function (e, r, p, m) {
         var liEl = $('<li></li>');
         var spanEl = $('<span></span>');
         spanEl.html(multipleCheckbox);
-        liEl.addClass(disabledClass + " " + optgroupClass);
+        liEl.addClass(disabledClass + " ," + optgroupClass);
         liEl.append(spanEl);
 
         // add icons

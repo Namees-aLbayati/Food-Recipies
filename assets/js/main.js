@@ -7,6 +7,7 @@ var minutes;
 var healthType=document.getElementById('healthId')
 var recipeQuery1=document.getElementById('recipeQuery');
 var RangeEl=document.getElementById('myRange');
+var _local = {};
 
 var rangeValue=document.getElementById('rangeValue')
 RangeEl.oninput = function() {
@@ -87,7 +88,10 @@ fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${keyword}&app_id=0d9
     localStorage.setItem('result',JSON.stringify(data))
     createCards(data)
    document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
-localStorage.setItem('resultNow',JSON.stringify(data))
+
+
+   localStorage.setItem('resultNow',JSON.stringify(data))
+   
 })
 }else if (keyword&&Catog&&health&&cuisine&&meal){
     console.log('5',keyword,Catog,health,cuisine,meal)
@@ -102,6 +106,8 @@ localStorage.setItem('resultNow',JSON.stringify(data))
               createCards(data)
 
               document.getElementById('resultContainer').innerHTML="<a href='index2.html'>results here</a>"
+             
+
               localStorage.setItem('resultNow',JSON.stringify(data))
 
      })
@@ -160,7 +166,7 @@ var newHttp=[`https://api.edamam.com/api/recipes/v2?type=public&q=${keyword}&app
 var newHttp2=[]
 if(cuisine){
 
-    newHttp2.push(`&cuisine=${cuisine}`)
+    newHttp2.push(`&cuisineType=${cuisine}`)
 }if(meal){
     newHttp2.push(`&mealType=${meal}`)
 
@@ -177,6 +183,7 @@ var stringData=newHttp2.toString();
 
 var lastHttp=stringData.replaceAll(',','')
 
+console.log('check api url',newHttp+lastHttp)
 fetch(newHttp+lastHttp).then((result)=>{
         return result.json()
      }).then((data)=>{

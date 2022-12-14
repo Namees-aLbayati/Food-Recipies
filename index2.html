@@ -13,12 +13,29 @@
 <body style="background-image: url('./assets/js/extention/sstk_1803379345_7764582.jpg-.webp');  height: 100%; 
 background-size: cover;
 ">
+<a href="index3.html">your recipes favorite list</a>
    
     <div id="container2" class="d-flex flex-row  flex-wrap ">
 
-       
+      <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick='window.location.reload();'></button>
+            </div>
+            <div class="modal-body" id="modalContainer">
+              
+            </div>
+            <div class="modal-footer" id="foot">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Reload Page" onclick='window.location.reload();'>Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
           
     </div>
+
 
     <script src='./assets/js/script2.js' type="module"></script>
 </body>
